@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:personal_expense_tracker_app/res/app_colors/app_colors.dart';
-
+// Expense tile widget to show each expense.
 class ExpenseTile extends StatelessWidget {
   final String title;
   final String amount;
@@ -23,13 +23,15 @@ class ExpenseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // getting the width of screen.
     final width = MediaQuery.sizeOf(context).width * 1;
+    // getting the current mode.
     Brightness mode = Theme.of(context).brightness;
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Slidable(
-          // Specify a key if the Slidable is dismissible.
-          // key: const ValueKey(0),
+      // SlideAble widget to make a tile slide able.
+      child: Slidable(
+          // Make it slide able from left for update.
           startActionPane: ActionPane(
             extentRatio: .15,
             // A motion is a widget used to control how the pane animates.

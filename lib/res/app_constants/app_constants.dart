@@ -1,4 +1,5 @@
 
+// App Constants that are Expense table name and its column names.
 class AppConst {
 
   static const String tableName = 'expensesTable';

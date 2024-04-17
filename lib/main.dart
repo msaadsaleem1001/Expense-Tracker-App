@@ -8,6 +8,8 @@ import 'package:personal_expense_tracker_app/res/routes/app_routes.dart';
 import 'package:personal_expense_tracker_app/res/routes/routes_names.dart';
 import 'package:personal_expense_tracker_app/res/theme_data/theme_data.dart';
 import 'package:personal_expense_tracker_app/view_model/bloc/expense_bloc/expense_bloc.dart';
+import 'package:personal_expense_tracker_app/view_model/bloc/settings_bloc/settings_bloc.dart';
+import 'package:personal_expense_tracker_app/view_model/bloc/splash_bloc/splash_bloc.dart';
 import 'package:personal_expense_tracker_app/view_model/bloc/theme_bloc/theme_bloc.dart';
 
 void main() async {
@@ -24,13 +26,14 @@ void main() async {
 class ExpenseTrackerApp extends StatelessWidget {
   const ExpenseTrackerApp({super.key});
 
-  // This widget is the root of application.
+  // This widget is the root of Expense Tracker Application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-            create: (_) => ExpenseBloc(ExpenseDatabaseRepository.instance)),
+        BlocProvider(create: (_) => ExpenseBloc(ExpenseDatabaseRepository.instance)),
+        BlocProvider(create: (_) => SplashBloc()),
+        BlocProvider(create: (_) => SettingsBloc()),
         BlocProvider(create: (_) => ThemeCubit()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
@@ -41,7 +44,7 @@ class ExpenseTrackerApp extends StatelessWidget {
             theme: ExpenseAppThemeData.light,
             darkTheme: ExpenseAppThemeData.dark,
             themeMode: mode,
-            initialRoute: RoutesNames.homeScreen,
+            initialRoute: RoutesNames.splashScreen,
             onGenerateRoute: Routes.generateRoutes,
           );
         },

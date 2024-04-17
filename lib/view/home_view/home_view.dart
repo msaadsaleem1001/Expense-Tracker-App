@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:personal_expense_tracker_app/res/app_assets/app_assets.dart';
@@ -13,7 +12,7 @@ import 'package:personal_expense_tracker_app/view_model/bloc/expense_bloc/expens
 import 'package:personal_expense_tracker_app/view_model/bloc/expense_bloc/expense_state.dart';
 import '../../res/components/graph/bar_graph.dart';
 import '../../view_model/bloc/expense_bloc/expense_event.dart';
-
+// Home Screen Widget.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_expense_tracker_app/models/expense_item.dart';
 import 'package:personal_expense_tracker_app/res/app_colors/app_colors.dart';
@@ -10,9 +9,10 @@ import '../../view_model/bloc/expense_bloc/expense_bloc.dart';
 import '../../view_model/bloc/expense_bloc/expense_event.dart';
 import '../../view_model/bloc/expense_bloc/expense_state.dart';
 
+// App Utilities.
 class AppUtils {
-  static Future<void> dialogAddExpense(
-      BuildContext context) {
+  // Dialog for add the expense.
+  static Future<void> dialogAddExpense(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     final titleController = TextEditingController();
     final descriptionController = TextEditingController();
@@ -138,14 +138,17 @@ class AppUtils {
                                                   item: ExpenseItem(
                                                       title: titleController
                                                           .text
-                                                          .toString(),
+                                                          .toString()
+                                                          .trim(),
                                                       desc:
                                                           descriptionController
                                                               .text
-                                                              .toString(),
+                                                              .toString()
+                                                              .trim(),
                                                       amount: amountController
                                                           .text
-                                                          .toString(),
+                                                          .toString()
+                                                          .trim(),
                                                       dateTime: DateTime.now()),
                                                   context: context));
                                         }
@@ -164,6 +167,7 @@ class AppUtils {
     );
   }
 
+  // Dialog for the Update Expense.
   static Future<void> dialogUpdateExpense(
       int listId, BuildContext context, ExpenseItem item) {
     final formKey = GlobalKey<FormState>();
@@ -314,14 +318,17 @@ class AppUtils {
                                                       id: item.id,
                                                       title: titleController
                                                           .text
-                                                          .toString(),
+                                                          .toString()
+                                                          .trim(),
                                                       desc:
                                                           descriptionController
                                                               .text
-                                                              .toString(),
+                                                              .toString()
+                                                              .trim(),
                                                       amount: amountController
                                                           .text
-                                                          .toString(),
+                                                          .toString()
+                                                          .trim(),
                                                       dateTime: item.dateTime),
                                                   listId: listId,
                                                   context: context));
@@ -341,6 +348,7 @@ class AppUtils {
     );
   }
 
+  // Dialog to show the details of a Expense.
   static Future<void> dialogShowExpense(
       BuildContext context, ExpenseItem item) {
     Brightness mode = Theme.of(context).brightness;

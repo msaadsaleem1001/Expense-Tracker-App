@@ -2,6 +2,7 @@ import '../../models/expense_item.dart';
 import '../../models/graph_model.dart';
 
 class ExpenseData {
+
   // get week day(Mon, Tue, Wed, etc) from a datetime object.
   static String getDayName(DateTime dateTime) {
     switch (dateTime.weekday) {
@@ -24,7 +25,8 @@ class ExpenseData {
     }
   }
 
-  // This function returns the average of daily expenses.
+  // This function returns the average of daily expenses and we handle
+  // only 20 entries a day if user exceeds then it will be logical error.
   static double singleBarRodVerticalAxis(int expenses, double totalAmount) {
     switch (expenses) {
       case 1:
@@ -72,21 +74,27 @@ class ExpenseData {
     }
   }
 
+  // Get the list of missing week days from graph list and
+  // add them with date and null data to show the graph perfectly
   static List<GraphModel> getMissingWeekDays(List<GraphModel> graphList) {
     DateTime dateTime = DateTime.now();
     List<int> daysList = [];
     int i = 0;
+    // Loop for enter Weekdays as integer in daysList[] that we initialize above as empty.
     while (i < 7) {
       daysList.add(DateTime.parse(convertDateTimeToString(dateTime)).day);
       dateTime = dateTime.subtract(const Duration(days: 1));
       i++;
     }
+    // Loop to check for existing week days in a list and remove them
+    // The result will be consist on only missing week days.
     for (int i = 0; i < graphList.length; i++) {
       if (daysList.contains(DateTime.parse(graphList[i].date).day)) {
         daysList
             .removeAt(daysList.indexOf(DateTime.parse(graphList[i].date).day));
       }
     }
+    // Now we will add those missing days in the given graphList with accurate date.
     for (var days in daysList) {
       DateTime currentDate = dateTime.copyWith(day: days);
       graphList.add(GraphModel(
@@ -95,11 +103,14 @@ class ExpenseData {
           totalExpenses: 0,
           totalAmount: 0.0));
     }
+    // Sort the graphList in an ascending order on the behalf of date.
     graphList.sort((a, b) =>
         DateTime.parse(a.date).day.compareTo(DateTime.parse(b.date).day));
+    // finally return the final sorted list
     return graphList;
   }
 
+  // Convert DateTime to String in this format: 20240416(yyyymmdd).
   static String convertDateTimeToString(DateTime dateTime) {
     // Year in the format of yyyy
     String year = dateTime.year.toString();
@@ -122,6 +133,7 @@ class ExpenseData {
     return yyyymmdd;
   }
 
+  // Get weekly total expenses Summary.
   static double getWeeklyTotalExpenses (List<GraphModel> graphList) {
     double weeklyTotal = 0.0;
     for(var graphItem in graphList){
@@ -130,6 +142,7 @@ class ExpenseData {
     return weeklyTotal;
   }
 
+  // Get the the total of expenses all Expenses.
   static double getTotalExpenses (List<ExpenseItem> expensesList) {
     double totalExpenses = 0.0;
     for(var expenseItem in expensesList){

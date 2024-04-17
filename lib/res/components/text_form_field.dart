@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_expense_tracker_app/res/app_colors/app_colors.dart';
 import '../app_text_styles/text_styles.dart';
 
+// App re use able Text form field which is used in Dialog boxes.
 class ReUseAbleTextFormField extends StatelessWidget {
   final FocusNode focusNode;
   final TextInputType? keyboardType;
@@ -27,6 +28,7 @@ class ReUseAbleTextFormField extends StatelessWidget {
         this.onTapOutSide});
   @override
   Widget build(BuildContext context) {
+    // Getting the current brightness mode of app.
     Brightness mode = Theme.of(context).brightness;
     return TextFormField(
       keyboardType: keyboardType,

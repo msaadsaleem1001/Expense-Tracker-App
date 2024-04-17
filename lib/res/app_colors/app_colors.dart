@@ -1,6 +1,7 @@
 import 'dart:ui';
-
+// All App colors are defined here and each one is self explanatory by its name.
 class AppColors {
+
   static const Color themeColorLight = Color(0xffa6f5ff);
   static const Color themeColorDark = Color(0xffdadada);
   static const Color appWhite = Color(0xffffffff);
@@ -15,7 +16,7 @@ class AppColors {
   static const Color lightModeDialogColor = Color(0xffdedede);
   static const Color darkModeDialogColor = Color(0xFF3D3D3D);
 
-  // Background Rod colors for Light & Dark
+  // Background Graph Rod colors for Light & Dark
   static const Color darkModeRodBackgroundColor = Color(0xFF676767);
   static const Color lightModeRodBackgroundColor = Color(0xffe0e0e0);
 
@@ -29,11 +30,11 @@ class AppColors {
   static const Color normalBorderColorDark = Color(0xffa4a4a4);
   static const Color errorBorderColor = Color(0xfffa5f5f);
 
-  // Edit Color
+  // Edit Icon Color
   static const Color editColor = Color(0xff7aff00);
-  // Del Color
+  // Del Icon Color
   static const Color delColor = Color(0xfffa5f5f);
-  // List Tile Color
+  // List Tile background Color that is basically container colors.
   static const Color listTileColorLight = Color(0xffa6f5ff);
   static const Color listTileColorDark = Color(0xFF525252);
 }

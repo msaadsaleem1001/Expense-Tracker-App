@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+// GraphModel class that has some required prams
 class GraphModel extends Equatable {
   final String date;
   final String weekDay;

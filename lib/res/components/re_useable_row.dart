@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../app_colors/app_colors.dart';
 import '../app_text_styles/text_styles.dart';
 
+// App Re use able row to show the amount of total expenses.
 class AppReUseAbleRow extends StatelessWidget {
   final String title;
   final String amount;

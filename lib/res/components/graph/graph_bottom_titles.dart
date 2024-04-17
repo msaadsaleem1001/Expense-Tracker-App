@@ -5,6 +5,7 @@ import '../../../models/graph_model.dart';
 import '../../app_colors/app_colors.dart';
 import '../../app_text_styles/text_styles.dart';
 
+// Class For Bottom Titles.
 class GraphBottomTitles {
 
   static Widget getBottomTitles(

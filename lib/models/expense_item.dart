@@ -2,6 +2,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:personal_expense_tracker_app/res/app_constants/app_constants.dart';
 
+// Expense Item Model class that extends equatable with required parameters.
 class ExpenseItem extends Equatable{
   final int? id;
   final String title;
@@ -27,6 +28,7 @@ class ExpenseItem extends Equatable{
     );
   }
 
+  // we will use this method every time when we get the expenses from Sqlite database as key pair values.
   factory ExpenseItem.fromJson(Map<String, dynamic> map) {
     return ExpenseItem(
       id: map[AppConst.id],
@@ -36,6 +38,7 @@ class ExpenseItem extends Equatable{
       dateTime: DateTime.parse(map[AppConst.dateTime])
     );
   }
+  // we will use this method every time when we insert the expense in Sqlite database as key pair values.
   Map<String, dynamic> toMap() {
     return {
       AppConst.id: id,

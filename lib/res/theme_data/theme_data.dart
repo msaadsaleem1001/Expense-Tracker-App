@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../app_colors/app_colors.dart';
 import '../app_text_styles/text_styles.dart';
-
+// App theme data class it has two static methods for getting the light & dark mode.
 class ExpenseAppThemeData {
-
+  // Light theme data getter.
   static ThemeData get light => ThemeData(
     scaffoldBackgroundColor: AppColors.lightModeScaffoldColor,
     primarySwatch: Colors.green,
@@ -38,7 +38,7 @@ class ExpenseAppThemeData {
       actionsPadding: const EdgeInsets.only(right: 10, top: 20, bottom: 10),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: AppColors.themeColorLight,
+      backgroundColor: AppColors.lightModeAppBarColor,
       enableFeedback: false,
       iconSize: 30,
       foregroundColor: AppColors.appWhite,
@@ -47,6 +47,7 @@ class ExpenseAppThemeData {
     ),
   );
 
+  // Dark mode theme data getter.
   static ThemeData get dark => ThemeData(
       scaffoldBackgroundColor: AppColors.darkModeScaffoldColor,
       primarySwatch: Colors.grey,

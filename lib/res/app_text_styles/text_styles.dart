@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+// App Text Styles class.
 class AppTextStyles {
 
+  // Title Style.
   static TextStyle titleStyle({double fontSize = 18, Color color = Colors.white}){
     return GoogleFonts.dosis(
       color: color,
@@ -13,6 +14,7 @@ class AppTextStyles {
     );
   }
 
+  // Sub Title Style.
   static TextStyle subTitleStyle({double fontSize = 14, Color color = Colors.white}){
     return GoogleFonts.dosis(
       color: color,
@@ -22,6 +24,7 @@ class AppTextStyles {
     );
   }
 
+  // Body Style.
   static TextStyle bodyStyle({double fontSize = 12, Color color = Colors.white}){
     return GoogleFonts.dosis(
         color: color,
