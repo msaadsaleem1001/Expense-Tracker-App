@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:personal_expense_tracker_app/Notifications/background_services/notification_background_services.dart';
 import 'package:personal_expense_tracker_app/repository/sqlite_repo/ExpenseRepository.dart';
 import 'package:personal_expense_tracker_app/res/routes/app_routes.dart';
 import 'package:personal_expense_tracker_app/res/routes/routes_names.dart';
@@ -20,18 +22,25 @@ void main() async {
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
+  await startBackgroundServices();
   runApp(const ExpenseTrackerApp());
+}
+
+@pragma('vm:entry-point')
+Future<void> startBackgroundServices() async {
+  final service = FlutterBackgroundService();
+  await AppBackgroundServices.initializeBackgroundServices(service);
 }
 
 class ExpenseTrackerApp extends StatelessWidget {
   const ExpenseTrackerApp({super.key});
 
-  // This widget is the root of Expense Tracker Application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => ExpenseBloc(ExpenseDatabaseRepository.instance)),
+        BlocProvider(
+            create: (_) => ExpenseBloc(ExpenseDatabaseRepository.instance)),
         BlocProvider(create: (_) => SplashBloc()),
         BlocProvider(create: (_) => SettingsBloc()),
         BlocProvider(create: (_) => ThemeCubit()),
