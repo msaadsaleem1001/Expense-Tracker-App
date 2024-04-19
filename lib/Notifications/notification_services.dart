@@ -71,7 +71,7 @@ class NotificationService {
 
   // The method to show periodic Notification on each day and you can set its time
   // which is callback your interval.
-  Future<void> showPeriodicNotification({
+  Future<void> showNotification({
     required int id,
     required String title,
     required String body,
@@ -79,11 +79,10 @@ class NotificationService {
   }) async {
     // Call the method of Notification Details and pass the details to notification.
     final platformChannelSpecifics = await _notificationDetails();
-    await _localNotifications.periodicallyShow(
+    await _localNotifications.show(
       id,
       title,
       body,
-      RepeatInterval.daily, // Here you can change the RepeatInterval to any incoming options.
       platformChannelSpecifics,
       payload: payload,
     );

@@ -59,8 +59,28 @@ class AppBackgroundServices {
       // Only available for flutter 3.0.0 and later
       // DartPluginRegistrant.ensureInitialized();
       // Try Catch Method to invoke the periodic notification.
+      Timer.periodic(const Duration(hours: 8), (timer) {
+        try{
+          notificationService.showNotification(
+            id: notificationId,
+            title: 'Add Expense',
+            body: 'Add the all expenses of today',
+            payload: 'add',
+          );
+        }
+        catch(e) {
+          debugPrint('Error of Notifications: ${e.toString()}');
+        }
+      });
+    }
+
+  static Future<bool> onBackground(ServiceInstance service) async {
+    // Only available for flutter 3.0.0 and later
+    // DartPluginRegistrant.ensureInitialized();
+    // Try Catch Method to invoke the periodic notification.
+    Timer.periodic(const Duration(hours: 8), (timer) {
       try{
-        notificationService.showPeriodicNotification(
+        notificationService.showNotification(
           id: notificationId,
           title: 'Add Expense',
           body: 'Add the all expenses of today',
@@ -70,23 +90,7 @@ class AppBackgroundServices {
       catch(e) {
         debugPrint('Error of Notifications: ${e.toString()}');
       }
-    }
-
-  static Future<bool> onBackground(ServiceInstance service) async {
-    // Only available for flutter 3.0.0 and later
-    // DartPluginRegistrant.ensureInitialized();
-    // Try Catch Method to invoke the periodic notification.
-    try{
-      notificationService.showPeriodicNotification(
-        id: notificationId,
-        title: 'Add Expense',
-        body: 'Add the all expenses of today',
-        payload: 'add',
-      );
-    }
-    catch(e) {
-      debugPrint('Error of Notifications: ${e.toString()}');
-    }
+    });
     return true;
   }
 
