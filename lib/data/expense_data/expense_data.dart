@@ -4,6 +4,7 @@ import '../../models/graph_model.dart';
 class ExpenseData {
 
   // get week day(Mon, Tue, Wed, etc) from a datetime object.
+  // Perform Testing of this widget
   static String getDayName(DateTime dateTime) {
     switch (dateTime.weekday) {
       case 1:
@@ -66,7 +67,7 @@ class ExpenseData {
       case 18:
         return totalAmount / 1800 * 100;
       case 19:
-        return totalAmount / 900 * 100;
+        return totalAmount / 1900 * 100;
       case 20:
         return totalAmount / 2000 * 100;
       default:
