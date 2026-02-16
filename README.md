@@ -56,6 +56,13 @@ This app can run on both IOS and Android but I don't have #Macbook that's why so
 </ul>
 <code>flutter run</code>  
 
+## Screenshots
+
+![1](https://github.com/user-attachments/assets/5fc86f0d-b9de-4181-a0ef-2d38e3864676)
+![2](https://github.com/user-attachments/assets/3e2e97a6-0951-4228-beea-aa9a1b24b08b)
+![4](https://github.com/user-attachments/assets/78203921-4013-4cad-a869-1a1d191fefb0)
+![3](https://github.com/user-attachments/assets/5afd2673-ae70-42f3-9978-22c08a7ad58f)
+
 
 ## Usage
 Once installed, the Personal Expense Tracker application allows users to:  Add new expenses, update, see, and delete them accordingly. View a weekly summary of their expenses over a specified period.
