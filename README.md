@@ -21,6 +21,7 @@ The Personal Expense Tracker is a mobile application developed using Flutter. It
 - **UI/UX Design**: Features a clean and intuitive user interface designed to provide a seamless experience for users while interacting with the application.
 - **Local Notifications**: Incorporates local notifications to remind users of pending expenses or upcoming payments, helping them stay organized and on top of their finances.
 - **Unit Testing**: Implements comprehensive unit tests to ensure the reliability and robustness of the application's codebase.
+- **CRUD Operation**: User can create, retrieve, edit, and delete expenses based on use case.
 
 ## Note
 
