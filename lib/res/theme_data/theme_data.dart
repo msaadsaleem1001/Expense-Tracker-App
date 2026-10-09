@@ -25,15 +25,15 @@ class ExpenseAppThemeData {
         titleTextStyle: AppTextStyles.titleStyle(
             fontSize: 18, color: AppColors.appBlack),
         subtitleTextStyle: AppTextStyles.subTitleStyle(
-            fontSize: 16, color: AppColors.appBlack.withOpacity(0.7)),
+            fontSize: 16, color: AppColors.appBlack.withValues(alpha: 0.7)),
         leadingAndTrailingTextStyle: AppTextStyles.titleStyle(
-            fontSize: 18, color: AppColors.appBlack.withOpacity(0.7))),
-    dialogTheme: DialogTheme(
-      backgroundColor: AppColors.lightModeDialogColor,
+            fontSize: 18, color: AppColors.appBlack.withValues(alpha: 0.7))),
+    dialogTheme: DialogThemeData(
+      backgroundColor: Colors.black26,
       elevation: 2,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(15))),
-      shadowColor: AppColors.themeColorLight.withOpacity(.4),
+      shadowColor: AppColors.themeColorLight.withValues(alpha: .4),
       alignment: Alignment.center,
       actionsPadding: const EdgeInsets.only(right: 10, top: 20, bottom: 10),
     ),
@@ -42,7 +42,7 @@ class ExpenseAppThemeData {
       enableFeedback: false,
       iconSize: 30,
       foregroundColor: AppColors.appWhite,
-      splashColor: AppColors.themeColorLight.withOpacity(.5),
+      splashColor: AppColors.themeColorLight.withValues(alpha: .5),
       elevation: 3,
     ),
   );
@@ -71,17 +71,17 @@ class ExpenseAppThemeData {
           titleTextStyle: AppTextStyles.titleStyle(
               fontSize: 18, color: AppColors.appWhite),
           subtitleTextStyle: AppTextStyles.subTitleStyle(
-              fontSize: 16, color: AppColors.appWhite.withOpacity(0.7)),
+              fontSize: 16, color: AppColors.appWhite.withValues(alpha: 0.7)),
           leadingAndTrailingTextStyle: AppTextStyles.titleStyle(
-              fontSize: 18, color: AppColors.appWhite.withOpacity(0.7))),
-      dialogTheme: DialogTheme(
+              fontSize: 18, color: AppColors.appWhite.withValues(alpha: 0.7))),
+      dialogTheme: DialogThemeData(
         backgroundColor: AppColors.darkModeDialogColor,
         elevation: 2,
         titleTextStyle: AppTextStyles.titleStyle(fontSize: 16, color: AppColors.appWhite),
         contentTextStyle: AppTextStyles.subTitleStyle(fontSize: 14, color: AppColors.appWhite),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15))),
-        shadowColor: AppColors.themeColorDark.withOpacity(.4),
+        shadowColor: AppColors.themeColorDark.withValues(alpha: .4),
         alignment: Alignment.center,
         actionsPadding: const EdgeInsets.only(right: 10, top: 20, bottom: 10),
       ),
@@ -90,7 +90,7 @@ class ExpenseAppThemeData {
         enableFeedback: false,
         iconSize: 30,
         foregroundColor: AppColors.themeColorLight,
-        splashColor: AppColors.themeColorLight.withOpacity(.3),
+        splashColor: AppColors.themeColorLight.withValues(alpha: .3),
         elevation: 3,
       ));
 }
